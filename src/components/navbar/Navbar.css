@@ -1,0 +1,22 @@
+@import '../../App.css';
+.navbar{
+    background-color: var(--primary-color);
+    color: white;
+}
+.logo h4{
+    font-weight: 400;
+    font-size: 30px;
+    font-family: var(--font-family1);
+    margin-left: 30px;
+}
+ul li{
+    font-weight: 600;
+    font-size: 17px;
+    transition: all.3s;
+    cursor: pointer;
+}
+ul li:hover{
+transform: translateY(-10px);
+background-color: none;
+color: white !important;
+}

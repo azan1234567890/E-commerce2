@@ -1,0 +1,54 @@
+@import "../../App.css";
+.popularproduct h1{
+    color: var(--primary-color);
+    font-family: var(--font-family1);
+    font-size: 60px;
+    width: 90%;
+}
+.popularproducts span{
+    position: absolute;
+    top: 3%;
+    left: 7%;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-family: var(--font-family1);
+    letter-spacing: 3px;
+    box-shadow: 3px 3px 20px rgb(172, 172, 172);
+}
+.popularproduct h6{
+    font-family: var(--font-family1);
+    letter-spacing: 3px;
+}
+.popularproduct img{
+  max-width:50% ;
+
+}
+.popularproduct .card-body h5{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.popularproducts .card{
+  cursor: pointer;
+}
+.popularproduct p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.popularproducts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+    gap: 20px; /* Adjust the gap between cards */
+    padding: 20px;
+  }
+  .card{
+    border: none;
+
+  }

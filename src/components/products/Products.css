@@ -1,0 +1,50 @@
+@import "../../App.css";
+.products{
+    background-color: rgb(221, 221, 221);
+}
+.category1{
+    background-image: url("../../assets/images/category-01.jpg");
+background-size: cover;
+background-repeat: no-repeats;
+
+height: 40rem;
+ }
+.category2{
+    background-image: url("../../assets/images/category-02.jpg");
+background-size: cover;
+background-repeat: no-repeats;
+
+height: 40rem;
+ }
+.category3{
+    background-image: url("../../assets/images/category-03.jpg");
+background-size: cover;
+background-repeat: no-repeats;
+
+height: 40rem;
+ }
+ .category1-content{
+    position: relative;
+    top: 80%;
+    background-color: white;
+    color: black;
+ }
+.category1-content h4{
+    font-size: 30px;
+    font-family: var(--font-family1);
+    color: rgb(119, 119, 119);
+}
+.category1-content p{
+    font-family: var(--font-family1) !important;
+    font-size: 16px !important;
+    color: rgb(77, 77, 77) !important;
+}
+ .product-content p{
+    font-family: var(--font-family2);
+    font-size: 13px;
+    color: rgb(77, 77, 77);
+ }
+ .product-content h1{
+    font-family: var(--font-family1);
+    font-size: 50px;
+ }
