@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from "./pages/home/Home"
 import Navbar from "./components/navbar/Navbar"
 import Login from './pages/login/Login';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function App() {
   const token = sessionStorage.getItem('token');
