@@ -8,8 +8,6 @@ import { useDispatch } from "react-redux";
 import ProductApis from "../../apis/Api";
 import { setProduct } from "../../slices/productSlice";
 import Footer from "../../components/footer/Footer";
-import { totalPrice } from "../../slices/CounterSlice";
-import { getAuth2 } from "../../apis/Api";
 const Home = () => {
 
 
@@ -18,9 +16,6 @@ const Home = () => {
     const fetchProduct = async () => {
       try {
         const data = await ProductApis.getProduct();
-// const login = await getAuth2();
-// console.log(login, 'login')
-
         dispatch(setProduct(data.data));
       
       } catch (error) {
