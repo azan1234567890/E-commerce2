@@ -5,6 +5,7 @@ import Home from "./pages/home/Home"
 import Navbar from "./components/navbar/Navbar"
 import Login from './pages/login/Login';
 import { useState } from 'react';
+import { memo } from 'react';
 
 function App() {
   const token = sessionStorage.getItem('token');
@@ -26,4 +27,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App) ;

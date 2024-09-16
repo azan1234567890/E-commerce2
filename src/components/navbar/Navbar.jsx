@@ -7,8 +7,6 @@ import { Increment, Decrement } from "../../slices/cartSlice";
 
 const Navbar = () => {
   const { cart } = useSelector((state) => state.cart);
-  // const prices = cart.price
-
   const count = useSelector((state) => state.cart.value);
   const price = useSelector((state) => state.cart.totalprice);
   const dispatch = useDispatch();
