@@ -1,30 +1,28 @@
 import React, { useContext, useState } from 'react';
+import {setCart} from '../../slices/cartSlice';
 
 import './PopularProduct.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-// import { setClick } from '../../slices/CounterSlice';
 const PopularProduct = () => {
-
-    const {data}= useSelector((state)=> state.products)
-    console.log(data, 'popularproduct data')
+    const {products}= useSelector((state)=> state.products)
     const dispatch= useDispatch()
-    // const handleClick = (id)=>{
-    //     dispatch(setClick(id))
-    // }
+    const handleClick = (items) => {
+        dispatch(setCart(items))
+    }
    
     return (
         <div className="popularproduct">
             <h1>Most Popular Products</h1>
             <div className="popularproducts">
-                {data && data.map((product) => (
-                    <div className="card" key={product.id}>
-                        <img src={product.image} alt={product.title} />
+                {products && products.map((items) => (
+                    <div className="card" key={items.id}>
+                        <img src={items.image} alt={items.title} />
                         <div className="card-body">
-                            <h5>{product.title}</h5>
-                            <p>{product.price}</p>
+                            <h6>{items.title}</h6>
+                            <p>$ {items.price}</p>
                            
-                            {/* <button className='btn btn-primary' onClick={() => handleClick(product)}>Add To Cart</button> */}
+                            <button className='btn btn-primary' onClick={() => handleClick(items)}>Add To Cart</button>
                         
                         </div>
                     </div>

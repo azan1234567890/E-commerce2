@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {getAuth} from '../../apis/Api';
-import { setUser } from "../../slices/CounterSlice";
+import { setUser } from "../../slices/productSlice";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("mor_2314");
   const [password, setPassword] = useState("83r5^_");
-const {api} = useSelector((state)=> state.products)
+const {token} = useSelector((state)=> state.products)
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent default form submission
 
@@ -22,7 +22,7 @@ const {api} = useSelector((state)=> state.products)
       console.log(error);
       // Handle error here (e.g., show error message)
     }
-    if (api) {
+    if (token) {
         navigate('/')
         
        }

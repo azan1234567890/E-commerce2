@@ -1,24 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
-  data: [],
-  products: [],
-  api: [{}],
-  error: null,
-};
+// import { createSlice } from "@reduxjs/toolkit";
+// const initialState = {
+// value: 1,
+// totalprice: ''
+// };
 
-export const counterSlice = createSlice({
-  name: "testing",
-  initialState,
-  reducers: {
-    setProduct: (state, action) => {
-      state.data = action.payload;
-    },
-    setUser: (state, action) => {
-      state.api = action.payload;
-      sessionStorage.setItem("token", action.payload.token);
-    },
-  },
-});
+// export const CounterSlice = createSlice({
+//   name: "counter",
+//   initialState,
+//   reducers: {
+//    Increment: (state ) => {
+//       state.value +=1
+//     },
+//     Decrement: (state) => {
+//       if (state.value> 1) {
+        
+//         state.value -=1;
+//       }
+//     },
+//     // totalPrice: (state, action)=>{
+//     //   state.totalprice = state.value * action.payload
+    
+//     // }
+//   },
+// });
 
-export const { setProduct, setUser } = counterSlice.actions;
-export default counterSlice.reducer;
+// export const { Increment, Decrement,totalPrice } = CounterSlice.actions;
+// export default CounterSlice.reducer;

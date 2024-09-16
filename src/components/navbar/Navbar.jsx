@@ -1,55 +1,35 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { memo } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import "./Navbar.css";
-import { useDispatch, useSelector } from 'react-redux';
-import { Increment,Decrement, multiply, divide } from '../../slices/CalcularSlice';
+import { useDispatch, useSelector } from "react-redux";
+import { Increment, Decrement } from "../../slices/cartSlice";
+
+
 const Navbar = () => {
-  const count =useSelector((state)=>state.calculater.value)
+  const { cart } = useSelector((state) => state.cart);
+  // const prices = cart.price
+
+  const count = useSelector((state) => state.cart.value);
+  const price = useSelector((state) => state.cart.totalprice);
   const dispatch = useDispatch();
 
-// {  //Make A Calculater
-//   // const [number,setNumber] = useState('')
-//   // const [number1,setNumber1] = useState('')
-// // const Number1 = (e)=>{
-// // setNumber(e.target.value)
-// // }
-// // const Number2 = (e)=>{
-// // setNumber1(e.target.value)
-// // }}
   return (
     <>
       <nav className="navbar py-3 px-4">
         <div className="logo">
           <h4>CremipeStore</h4>
-          <div>
-       
-      </div>
         </div>
         <div className="navbar-item">
-          <ul className='d-flex mt-3'>
-            <li className='pe-5'>Home</li>
-            <li className='pe-5'>About</li>
-            <li className='pe-5'>Shop</li>
-            <li className='pe-5'>Contact</li>
+          <ul className="d-flex mt-3">
+            <li className="pe-5">Home</li>
+            <li className="pe-5">About</li>
+            <li className="pe-5">Shop</li>
+            <li className="pe-5">Contact</li>
           </ul>
-         
-          {/* <button className='btn btn-primary' onClick={()=>dispatch(Increment())}>Increment</button>
-          {count}
-          <button className='btn btn-secondary' onClick={()=>dispatch(Decrement())}>Decrement</button> */}
-
-
-          {/* Make A Calculer */}
-          {/* <input type="number"  onChange={Number1}/>
-          <input type="number" onChange={Number2} />
-          <button className='btn btn-primary' onClick={()=>dispatch(Increment({value1: number , value2: number1})) } >+</button>
-          <button className='btn btn-secondary' onClick={()=>dispatch(Decrement({value1: number , value2: number1})) }>-</button>
-          <button className='btn btn-danger' onClick={()=>dispatch(multiply({value1: number , value2: number1})) }>*</button>
-          <button className='btn btn-warning' onClick={()=>dispatch(divide({value1: number , value2: number1})) }>/</button> */}
-         
         </div>
         <div className="">
           <FaShoppingCart
-            className='cart-logo mx-5'
+            className="cart-logo mx-5"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasExample"
@@ -63,7 +43,9 @@ const Navbar = () => {
             aria-labelledby="offcanvasExampleLabel"
           >
             <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasExampleLabel">Your Cart</h5>
+              <h5 className="offcanvas-title" id="offcanvasExampleLabel">
+                Your Cart
+              </h5>
               <button
                 type="button"
                 className="btn-close"
@@ -72,16 +54,57 @@ const Navbar = () => {
               ></button>
             </div>
             <div className="offcanvas-body">
-              <ul>
-                {/* {products && products.map((items) => (
-                  <li key={items.id}>
-                    {items.title}- ${items.price} - {items.stock} */}
-                    {/* <button className='btn btn-primary' onClick={()=>Increment(product)}>+</button>
-                    <button className='btn btn-primary' onClick={()=>Decrement(product)}>-</button> */}
-                  {/* </li> */}
-                {/* //  ))}  */}
-              </ul>
-
+              {cart &&
+                cart.map((item) => (
+                  <div
+                    className="card mb-3"
+                    key={item.id}
+                    style={{ maxWidth: "100%" }}
+                  >
+                    <div className="row g-0">
+                      <div className="col-md-4">
+                        <img
+                          src={item.image}
+                          className="img-fluid rounded-start"
+                          alt={item.title}
+                        />
+                      </div>
+                      <div className="col-md-8">
+                        <div className="card-body">
+                          <h5 className="card-title">{item.title}</h5>
+                          <p
+                            className="card-text"
+                            style={{
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
+                            }}
+                          >
+                            {item.description}
+                          </p>
+                          <p className="card-text">
+                            <small className="text-body-secondary">
+                          $ {price}
+                            </small>
+                            <button
+                              className="btn btn-primary mx-2"
+                              onClick={() => dispatch(Increment())}
+                            >
+                              +
+                            </button>
+                            {count}
+                            <button
+                              className="btn btn-danger mx-2"
+                              onClick={() => dispatch(Decrement())}
+                            >
+                              -
+                            </button>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
@@ -90,4 +113,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);

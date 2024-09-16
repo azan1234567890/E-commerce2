@@ -17,12 +17,14 @@
     letter-spacing: 3px;
     box-shadow: 3px 3px 20px rgb(172, 172, 172);
 }
-.popularproduct h6{
+.popularproducts h6{
     font-family: var(--font-family1);
     letter-spacing: 3px;
 }
-.popularproduct img{
-  max-width:50% ;
+.popularproducts img{
+  max-width: 50%;
+  position: relative;
+  left: 20%;
 
 }
 .popularproduct .card-body h5{
